@@ -36,7 +36,7 @@ def spin_wheel() -> int:
     if my_num == 0:
         rprint(f"[bold green]{my_num}[/bold green]")
     elif is_odd(my_num):
-        rprint(f"[bold white]{my_num}[/bold white]")
+        rprint(f"[bold black]{my_num}[/bold black]")
     elif is_even(my_num):
         rprint(f"[bold red]{my_num}[/bold red]")
     return my_num
