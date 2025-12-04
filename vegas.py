@@ -1,5 +1,8 @@
 import argparse
 import time
+import rich
+import pygame
+
 from random import randint as random_integer
 from rich import print as rprint
 from rich.console import Console
@@ -11,7 +14,15 @@ def is_odd(number: int) -> bool:
 def is_even(number: int) -> bool:
      return number % 2 == 0
 
+#NEW ADDED CODE
+pygame.mixer.init()  
+spin_sound = pygame.mixer.Sound("Roulette_Ball.mp3")  # <-- your sound file
+#NEW ADDED CODE ENDS
+
 def show_spinning_wheel(spin_time: float):
+    #NEW ADDED CODE
+    spin_sound.play()
+    #NEW ADDED CODE ENDS
     with Status("[italic]Roulete Wheel Noises[/italic]", spinner="dots") as status:
         start_time = time.time()
 
@@ -33,7 +44,7 @@ def spin_wheel() -> int:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--num-spins", type=int, default=1, required=False)
-    parser.add_argument("--spin-time", type=float, default=4.0, required=False)
+    parser.add_argument("--spin-time", type=float, default=6.0, required=False)
     args = parser.parse_args()
 
     for _ in range(args.num_spins):
